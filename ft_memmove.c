@@ -6,22 +6,33 @@
 /*   By: yabad <yabad@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 15:06:25 by yabad             #+#    #+#             */
-/*   Updated: 2022/10/07 18:49:22 by yabad            ###   ########.fr       */
+/*   Updated: 2022/10/08 20:04:46 by yabad            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-// void	*ft_memmove(void *dst, const void *src, size_t len)
-// {
-// 	int	*tab
-// 	tab = (int []){0};
-// }
+void	*ft_memmove(void *dst, const void *src, size_t len)
+{
+	char	*srcp;
+	char	*dstp;
+
+	srcp = (char *)src;
+	dstp = (char *)dst;
+	if (srcp < dstp)
+	{
+		while (len--)
+			dstp[len] = srcp[len];
+	}
+	else
+		ft_memcpy(dstp, srcp, len);
+	return (dst);
+}
 
 // int	main()
 // {
-// 	char s[] = {65, 66, 67, 68, 69, 0, 45};
-// 	char s0[] = { 0,  0,  0,  0,  0,  0, 0};
+// 	char l[] = "Start stop";
 
-// 	printf("%s", ft_memmove(s0, s, 7));
+// 	printf("%s\n", ft_memmove(l + 2, l, 4)); //OVERLAP LOSS OF DATA
+// 	//printf("%s\n", memmove(l, l + 2, 4)); //OVERLAP  NO LOSS OF DATA
 // }
