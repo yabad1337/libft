@@ -6,11 +6,27 @@
 /*   By: yabad <yabad@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 15:45:24 by yabad             #+#    #+#             */
-/*   Updated: 2022/10/06 12:40:40 by yabad            ###   ########.fr       */
+/*   Updated: 2022/10/10 19:43:45 by yabad            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+char	*allocate_substr(unsigned int start, size_t size_s, size_t len)
+{
+	char	*sp;
+
+	if (start < size_s)
+	{
+		if (len < size_s)
+			sp = (char *)malloc(len + 1);
+		else
+			sp = (char *)malloc(size_s - start + 1);
+	}
+	else
+		sp = (char *)malloc(1);
+	return (sp);
+}
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
@@ -21,15 +37,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	if (!s)
 		return (NULL);
 	size_s = ft_strlen(s);
-	if (start < size_s)
-	{
-		if (len < size_s)
-			sp = (char *)malloc(len + 1);
-		else
-			sp = (char *)malloc(size_s - start + 1);
-	}
-	else
-		sp = (char *)malloc(1);
+	sp = allocate_substr(start, size_s, len);
 	i = 0;
 	if (!sp)
 		return (NULL);

@@ -6,7 +6,7 @@
 /*   By: yabad <yabad@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 08:46:07 by yabad             #+#    #+#             */
-/*   Updated: 2022/10/03 16:32:13 by yabad            ###   ########.fr       */
+/*   Updated: 2022/10/10 19:10:47 by yabad            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,12 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 	s2p = (char *)s2;
 	if (n == 0)
 		return (0);
-	while (s1p[i] == s2p[i] && i < n - 1) // i starts with 0 and n starts with 1
+	while (s1p[i] == s2p[i] && i < n - 1)
 		i++;
 	return ((unsigned char)s1p[i] - (unsigned char)s2p[i]);
 }
 
+// line 26 i starts with 0 and n starts with 1
 // int	main()
 // {
 // 	// char s[] = {-128, 0, 127, 0};

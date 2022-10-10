@@ -6,13 +6,27 @@
 /*   By: yabad <yabad@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 10:30:30 by yabad             #+#    #+#             */
-/*   Updated: 2022/10/10 10:02:20 by yabad            ###   ########.fr       */
+/*   Updated: 2022/10/10 19:31:55 by yabad            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char    *ft_strnstr(const char *haystack, const char *needle, size_t n)
+void	tests(const char *needle, const char *haystack, size_t *i, size_t *j)
+{
+	if (needle[*j + 1] && haystack[*i + 1] == needle[*j + 1])
+	{
+		(*j)++;
+		(*i)++;
+	}
+	else if (needle[*j + 1] && haystack[*i + 1] != needle[*j + 1])
+	{
+		*i = *i - (*j - 1);
+		*j = 0;
+	}
+}
+
+char	*ft_strnstr(const char *haystack, const char *needle, size_t n)
 {
 	size_t	i;
 	size_t	j;
@@ -29,18 +43,10 @@ char    *ft_strnstr(const char *haystack, const char *needle, size_t n)
 			i++;
 		else
 		{
-			if (needle[j + 1] && haystack[i + 1] == needle[j + 1])
-			{
-				j++;
-				i++;
-			}
-			else if (needle[j + 1] && haystack[i + 1] != needle[j + 1])
-			{
-				i = i - (j - 1);
-				j = 0;
-			}
-			else
+			if (!needle[j + 1])
 				return ((char *)haystack + (i - j));
+			else
+				tests(needle, haystack, &i, &j);
 		}
 	}
 	return (NULL);
@@ -51,7 +57,6 @@ char    *ft_strnstr(const char *haystack, const char *needle, size_t n)
 //     char 	s1[15] = "yabad was here";
 //  	char 	s2[10] = "aaabc";
 //  	size_t	n = 9;
- 
 //      printf("%s#\n", ft_strnstr(s1, s1, n));
 //      printf("%s#\n", strnstr(s1, s1, n));
 //      return (0);

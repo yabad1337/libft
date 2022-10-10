@@ -6,7 +6,7 @@
 /*   By: yabad <yabad@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 12:02:19 by yabad             #+#    #+#             */
-/*   Updated: 2022/10/10 17:55:20 by yabad            ###   ########.fr       */
+/*   Updated: 2022/10/10 19:46:13 by yabad            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_lstclear(t_list	**lst, void (*del)(void *))
 	t_list	*tmp;
 
 	if (!del || !lst || !(*lst))
-		return;
+		return ;
 	while (lst && (*lst))
 	{
 		tmp = (*lst)->next;

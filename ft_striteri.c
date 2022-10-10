@@ -6,7 +6,7 @@
 /*   By: yabad <yabad@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 11:27:14 by yabad             #+#    #+#             */
-/*   Updated: 2022/10/06 11:57:41 by yabad            ###   ########.fr       */
+/*   Updated: 2022/10/10 19:45:05 by yabad            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 	int	ls;
 
 	if (!s)
-		return;
+		return ;
 	i = -1;
 	ls = ft_strlen(s);
 	while (s[++i])

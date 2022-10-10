@@ -6,13 +6,13 @@
 /*   By: yabad <yabad@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 09:21:07 by yabad             #+#    #+#             */
-/*   Updated: 2022/10/08 11:49:56 by yabad            ###   ########.fr       */
+/*   Updated: 2022/10/10 19:44:33 by yabad            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		if_exist(char c, char const *set)
+int	if_exist(char c, char const *set)
 {
 	int	i;
 

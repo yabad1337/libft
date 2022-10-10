@@ -6,7 +6,7 @@
 /*   By: yabad <yabad@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 11:24:49 by yabad             #+#    #+#             */
-/*   Updated: 2022/10/10 11:56:50 by yabad            ###   ########.fr       */
+/*   Updated: 2022/10/10 19:45:57 by yabad            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
 	if (!del)
-		return;
+		return ;
 	if (lst)
 	{
 		del(lst->content);
