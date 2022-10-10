@@ -6,7 +6,7 @@
 /*   By: yabad <yabad@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 10:30:30 by yabad             #+#    #+#             */
-/*   Updated: 2022/10/09 16:53:18 by yabad            ###   ########.fr       */
+/*   Updated: 2022/10/10 10:02:20 by yabad            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,11 +48,11 @@ char    *ft_strnstr(const char *haystack, const char *needle, size_t n)
 
 // int main()
 // {
-//     char 	s1[10] = "aaaabcabcd";
-// 	char 	s2[10] = "aaabc";
-// 	size_t	n = 9;
+//     char 	s1[15] = "yabad was here";
+//  	char 	s2[10] = "aaabc";
+//  	size_t	n = 9;
  
-//     printf("%s#\n", ft_strnstr(s1, s2, n));
-//     printf("%s#\n", strnstr(s1, s2, n));
-//     return (0);
+//      printf("%s#\n", ft_strnstr(s1, s1, n));
+//      printf("%s#\n", strnstr(s1, s1, n));
+//      return (0);
 // }
