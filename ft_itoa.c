@@ -6,86 +6,91 @@
 /*   By: yabad <yabad@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 10:25:17 by yabad             #+#    #+#             */
-/*   Updated: 2022/10/06 12:15:05 by yabad            ###   ########.fr       */
+/*   Updated: 2022/10/10 18:56:50 by yabad            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	num_toallocate(int n)
+char	*allocate(int n, int *size)
 {
-	int				c;
-	int				sign;
+	char	*str;
+
+	if (n >= 0)
+		*size = *size + 1;
+	else
+		*size = *size + 2;
+	while (n)
+	{
+		(*size)++;
+		n = n / 10;
+	}
+	str = (char *)malloc(*size);
+	return (str);
+}
+
+char	*neg(int n, int *size, char *str)
+{
 	unsigned int	np;
 
-	c = 1;
-	sign = 0;
-	if (n < 0)
+	np = n * -1;
+	(*size)--;
+	str[*size] = '\0';
+	str[0] = '-';
+	while (--(*size) > 0)
 	{
-		sign = 1;
-		np = n * -1;
-	}
-	else
-		np = n;
-	if (np < 10)
-		c = 1;
-	while (np >= 10 && ++c)
+		str[*size] = np % 10 + '0';
 		np = np / 10;
-	return (c + sign + 1);
+	}
+	return (str);
 }
 
-static int	num_todivide(int n, int a)
+char	*pos(int n, int *size, char	*str)
 {
-	int	dv;
-
-	dv = 1;
-	if (n < 0)
-		a = a - 3;
-	else
-		a = a - 2;
-	while (a)
+	(*size)--;
+	str[*size] = '\0';
+	while (--(*size) >= 0)
 	{
-		dv *= 10;
-		a--;
+		str[*size] = n % 10 + '0';
+		n = n / 10;
 	}
-	return (dv);
+	return (str);
 }
 
-static void	remp_tab(char	*tab, unsigned int np, int a, int i)
+char	*case_0(char	*str)
 {
-	while (np != 0)
-	{
-		tab[i++] = np / a + '0';
-		np = np % a;
-		a = a / 10;
-	}
-	tab[i] = '\0';
+	str = malloc(2);
+	if (!str)
+		return (NULL);
+	str[0] = '0';
+	str[1] = '\0';
+	return (str);
 }
 
 char	*ft_itoa(int n)
 {
-	char			*tab;
-	unsigned int	np;
-	int				a;
-	int				i;
+	char	*str;
+	int		size;
 
-	a = num_toallocate(n);
-	i = 0;
-	tab = (char *)malloc(a * sizeof(char));
-	if (!tab)
-		return (NULL);
-	if (n == 0)
-		tab[i++] = 0 + '0';
+	str = NULL;
+	size = 0;
 	if (n < 0)
 	{
-		tab[i++] = '-';
-		np = n * -1;
+		str = allocate(n, &size);
+		if (!str)
+			return (NULL);
+		str = neg(n, &size, str);
+	}
+	else if (n > 0)
+	{
+		str = allocate(n, &size);
+		if (!str)
+			return (NULL);
+		str = pos(n, &size, str);
 	}
 	else
-		np = n;
-	a = num_todivide(n, a);
-	remp_tab(tab, np, a, i);
-	return (tab);
+		str = case_0(str);
+	return (str);
 }
 
 // int	main()
