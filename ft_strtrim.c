@@ -26,30 +26,54 @@ int	if_exist(char c, char const *set)
 	return (0);
 }
 
-void	positions(char const *s1, char const *set, int *r, int *l)
+int	positions(char const *s1, char const *set, int *r, int *l)
 {
-	*r = 0;
-	*l = (int)ft_strlen(s1) - 1;
-	while (if_exist(s1[(*r)], set))
+	int	len;
+	int	ls1;
+
+	len = 0;
+	ls1 = ft_strlen(s1);
+	*l = ls1 - 1;
+	while ((*r) < ls1 && if_exist(s1[*r], set))
+	{
 		(*r)++;
-	while (if_exist(s1[(*l)], set))
+		len++;
+	}
+	while ((*l) > 0 && if_exist(s1[*l], set))
+	{
 		(*l)--;
+		len++;
+	}
+	return (ls1 - len);
 }
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	int	r;
-	int	l;
+	int		r;
+	int		l;
+	int		flen;
+	char	*rslt;
 
-	if (!s1)
-		return (NULL);
-	r = 0;
-	l = 0;
-	positions(s1, set, &r, &l);
-	return (ft_substr(s1, r, l - r + 1));
+	if (s1 && set)
+	{	
+		r = 0;
+		l = ft_strlen(s1) - 1;
+		flen = positions(s1, set, &r, &l);
+		if (flen < 0)
+			flen = 0;
+		rslt = (char *)malloc(flen + 1);
+		if (!rslt)
+			return (NULL);
+		r = 0;
+		while (r < (int)ft_strlen(s1) && if_exist(s1[r], set))
+			r++;
+		ft_strlcpy(rslt, &s1[r], flen + 1);
+		return (rslt);
+	}
+	return (NULL);
 }
 
 // int	main()
 // {
-// 	ft_strtrim("nbnlolobnbtonbn", "nbn");
+// 	printf("%s#\n", ft_strtrim("            ", " "));
 // }
