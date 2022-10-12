@@ -24,20 +24,22 @@ RM		= rm -f
 
 AR		= ar rc
 
-${NAME}:	${OBJS}
-			${AR} ${NAME} ${OBJS}
-			ranlib ${NAME}
+${NAME}: ${OBJS}
+	${AR} ${NAME} $?
+	ranlib ${NAME}
 
-all:		${NAME}
+all: ${NAME}
 
 clean:
-			${RM} ${OBJS} ${OBJS_BONUS}
+	${RM} ${OBJS} ${OBJS_BONUS}
 
-fclean:		clean
-			${RM} ${NAME}
+fclean:	clean
+	${RM} ${NAME}
 
-re:			fclean all
+re:	fclean all
 
-bonus:
-			$(CC) $(CFLAGS) -c  $(SRCS) $(SRCS_BONUS)
-			${AR} $(NAME) $(SRCS) $(OBJS_BONUS)
+bonus: all $(OBJS_BONUS)
+	${AR} $(NAME) $(OBJS_BONUS)
+	ranlib ${NAME}
+
+.PHONY: all bonus clean fclean re
