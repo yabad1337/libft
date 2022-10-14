@@ -11,9 +11,6 @@ SRCS_BONUS =	ft_lstnew_bonus.c ft_lstadd_front_bonus.c \
 				ft_lstadd_back_bonus.c ft_lstdelone_bonus.c ft_lstclear_bonus.c \
 				ft_lstiter_bonus.c ft_lstmap_bonus.c
 
-.c.o:
-	${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
-
 OBJS	= ${SRCS:.c=.o}
 
 OBJS_BONUS = ${SRCS_BONUS:.c=.o}
@@ -27,6 +24,9 @@ CFLAGS	= -Wall -Wextra -Werror
 RM		= rm -f
 
 AR		= ar rc
+
+%.o: %.c 
+	$(CC) $(CFLAGS) -c $< -o $@
 
 ${NAME}: ${OBJS}
 	${AR} ${NAME} $?
