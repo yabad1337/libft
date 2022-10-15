@@ -6,13 +6,13 @@
 /*   By: yabad <yabad@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 09:21:07 by yabad             #+#    #+#             */
-/*   Updated: 2022/10/10 19:44:33 by yabad            ###   ########.fr       */
+/*   Updated: 2022/10/15 09:39:00 by yabad            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	if_exist(char c, char const *set)
+static int	if_exist(char c, char const *set)
 {
 	int	i;
 
@@ -26,7 +26,7 @@ int	if_exist(char c, char const *set)
 	return (0);
 }
 
-int	positions(char const *s1, char const *set, int *r, int *l)
+static int	positions(char const *s1, char const *set, int *r, int *l)
 {
 	int	len;
 	int	ls1;

@@ -6,13 +6,13 @@
 /*   By: yabad <yabad@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 10:25:17 by yabad             #+#    #+#             */
-/*   Updated: 2022/10/10 18:56:50 by yabad            ###   ########.fr       */
+/*   Updated: 2022/10/15 09:35:59 by yabad            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*allocate(int n, int *size)
+static char	*allocate(int n, int *size)
 {
 	char	*str;
 
@@ -29,7 +29,7 @@ char	*allocate(int n, int *size)
 	return (str);
 }
 
-char	*neg(int n, int *size, char *str)
+static char	*neg(int n, int *size, char *str)
 {
 	unsigned int	np;
 
@@ -45,7 +45,7 @@ char	*neg(int n, int *size, char *str)
 	return (str);
 }
 
-char	*pos(int n, int *size, char	*str)
+static char	*pos(int n, int *size, char	*str)
 {
 	(*size)--;
 	str[*size] = '\0';
@@ -57,7 +57,7 @@ char	*pos(int n, int *size, char	*str)
 	return (str);
 }
 
-char	*case_0(char	*str)
+static char	*case_0(char	*str)
 {
 	str = malloc(2);
 	if (!str)

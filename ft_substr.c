@@ -6,13 +6,13 @@
 /*   By: yabad <yabad@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 15:45:24 by yabad             #+#    #+#             */
-/*   Updated: 2022/10/10 19:43:45 by yabad            ###   ########.fr       */
+/*   Updated: 2022/10/15 09:39:21 by yabad            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*allocate_substr(unsigned int start, size_t size_s, size_t len)
+static char	*allocate_substr(unsigned int start, size_t size_s, size_t len)
 {
 	char	*sp;
 

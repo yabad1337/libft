@@ -6,13 +6,14 @@
 /*   By: yabad <yabad@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 10:30:30 by yabad             #+#    #+#             */
-/*   Updated: 2022/10/10 19:31:55 by yabad            ###   ########.fr       */
+/*   Updated: 2022/10/15 09:41:24 by yabad            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	tests(const char *needle, const char *haystack, size_t *i, size_t *j)
+static void	tests(const char *needle, \
+const char *haystack, size_t *i, size_t *j)
 {
 	if (needle[*j + 1] && haystack[*i + 1] == needle[*j + 1])
 	{
