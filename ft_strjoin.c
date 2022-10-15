@@ -6,7 +6,7 @@
 /*   By: yabad <yabad@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 16:03:23 by yabad             #+#    #+#             */
-/*   Updated: 2022/10/06 11:04:42 by yabad            ###   ########.fr       */
+/*   Updated: 2022/10/15 12:56:16 by yabad            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	int		i;
 	int		j;
 
-	if (!s1)
+	if (!s1 || !s2)
 		return (NULL);
 	i = ft_strlen(s1);
 	j = ft_strlen(s2);

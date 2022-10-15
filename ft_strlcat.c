@@ -6,7 +6,7 @@
 /*   By: yabad <yabad@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 17:13:06 by yabad             #+#    #+#             */
-/*   Updated: 2022/10/07 20:04:13 by yabad            ###   ########.fr       */
+/*   Updated: 2022/10/15 14:55:49 by yabad            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 
 // int    main()
 // {
-
-//     printf("%zu", ft_strlcat(0, "test", 1));
-//     printf("%lu", strlcat(0, "test", 1));
+//     printf("%zu\n", ft_strlcat("yabad was here", "test", 6));
+//     printf("%lu", strlcat("yabad was here", "test", 6));
 // }

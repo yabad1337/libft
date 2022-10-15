@@ -6,22 +6,22 @@
 /*   By: yabad <yabad@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 15:45:24 by yabad             #+#    #+#             */
-/*   Updated: 2022/10/15 09:39:21 by yabad            ###   ########.fr       */
+/*   Updated: 2022/10/15 14:39:25 by yabad            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static char	*allocate_substr(unsigned int start, size_t size_s, size_t len)
+static char	*allocate_substr(unsigned int start, size_t ls, size_t len)
 {
 	char	*sp;
 
-	if (start < size_s)
+	if (start < ls)
 	{
-		if (len < size_s)
+		if (len < ls)
 			sp = (char *)malloc(len + 1);
 		else
-			sp = (char *)malloc(size_s - start + 1);
+			sp = (char *)malloc(ls - start + 1);
 	}
 	else
 		sp = (char *)malloc(1);
@@ -32,18 +32,18 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*sp;
 	int		i;
-	size_t	size_s;
+	size_t	ls;
 
 	if (!s)
 		return (NULL);
-	size_s = ft_strlen(s);
-	sp = allocate_substr(start, size_s, len);
+	ls = ft_strlen(s);
+	sp = allocate_substr(start, ls, len);
 	i = 0;
 	if (!sp)
 		return (NULL);
-	if (start <= size_s)
+	if (start <= ls)
 	{
-		while (start < size_s && len)
+		while (start < ls && len)
 		{
 			sp[i] = s[start];
 			i++;
