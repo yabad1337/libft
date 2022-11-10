@@ -6,7 +6,7 @@
 /*   By: yabad <yabad@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 10:53:36 by yabad             #+#    #+#             */
-/*   Updated: 2022/10/14 18:38:27 by yabad            ###   ########.fr       */
+/*   Updated: 2022/11/10 10:46:24 by yabad            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,3 +23,7 @@ t_list	*ft_lstnew(void *content)
 	list->next = NULL;
 	return (list);
 }
+/*
+	INPUT	: void *content ---> (valid values, NULL)
+	NOTHING TO PROTECT HERE
+*/
