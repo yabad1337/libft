@@ -38,6 +38,6 @@ ce projet a pour objectif de coder en c une bibliothèque de fonctions usuelles 
     - l'allocation dynamique et les pointeurs
     - l'algorithme
     - callback functions et les fonctions pointeurs
-    - file descriptor et comment lire et ecrire dans les files
+    - file descriptor et comment lire et ecrire du files
     - linked lists
 
